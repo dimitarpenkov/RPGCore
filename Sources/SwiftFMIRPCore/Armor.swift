@@ -3,6 +3,7 @@ protocol Armor {
     var defence: Int {get}
 }
 
+//different armors for different races
 
 struct HumanfVest: Armor {
     var attack: Int

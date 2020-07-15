@@ -97,8 +97,6 @@ class Game {
                                 currentPlayer.isAlive = false
                                 playerMoveIsNotFinished = false
                                 print("Вашият ход приключи.")
-                            case "down":
-                                
                             default:
                                 print("Непозната команда!")
                             }

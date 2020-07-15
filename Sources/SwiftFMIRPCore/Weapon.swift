@@ -3,6 +3,8 @@ protocol Weapon {
     var defence: Int {get}
 }
 
+
+//different weapon for the 
 struct HumanAxe: Weapon {
     var attack: Int
     

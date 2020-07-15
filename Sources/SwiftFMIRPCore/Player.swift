@@ -44,6 +44,7 @@ class StandartPlayer: Player{
     
 }
 
+//generating a player with name, avatar and random hero
 class StandartPlayerGenerator: PlayerGenerator {
     var heroGenerator: StandartHeroGenerator
     

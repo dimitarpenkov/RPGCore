@@ -60,6 +60,7 @@ protocol MapTile {
     var state: String {get set}
 }
 
+//map tiles for different obstacales, rewards and players
 enum MapTileType {
     case empty
     case chest
@@ -105,6 +106,8 @@ class StandartMap: Map {
         
         return playerMoves
     }
+    
+    //checks if a move is available so that it doesn't go out the map
     
     func move(player: StandartPlayer, move: PlayerMove) {
         let currentPosition = player.currentPosition
@@ -155,6 +158,8 @@ class StandartMapTile: MapTile {
 }
 
 class StandartMapGenerator: MapGenerator {
+    
+    //generating random map with mostly free spaces for the players to step on, the map will be twice as high and twice as wide as the number of players
     func generate(players: [Player]) -> Map {
         var height : Int = 0
         var width: Int = 0
@@ -192,6 +197,7 @@ class StandartMapGenerator: MapGenerator {
     }
     
     
+    //will show which places are available for spawning
     func checkAvailablePlacesToSpawn(maze: [[MapTile]]) -> [(Int, Int)] {
         var availablePlaces = [(Int, Int)]()
         for row in 0..<maze.capacity {
@@ -204,6 +210,8 @@ class StandartMapGenerator: MapGenerator {
         return availablePlaces
     }
     
+    
+    //places the players on the available spots after generating the map
     func placePlayersRandomlyOnMap(players: [StandartPlayer], maze: [[StandartMapTile]]) {
         var placesWherePlayersSpawn = [(Int, Int)]()
         var availablePlaces: [(Int, Int)] = checkAvailablePlacesToSpawn(maze: maze)
@@ -217,6 +225,7 @@ class StandartMapGenerator: MapGenerator {
         }
     }
     
+    //changes the type of tile if a player is positioned on it (can be useful when moving a player)
     func putPlayerOnTile(maze: [[StandartMapTile]], position: (Int, Int), player: StandartPlayer) {
         for row in 0..<maze.count {
             for tile in 0..<maze[row].count {

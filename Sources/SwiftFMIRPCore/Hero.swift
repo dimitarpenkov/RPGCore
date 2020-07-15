@@ -56,6 +56,8 @@ class StandartHero: Hero {
     }
 }
 
+//generating random races for each player
+
 class StandartHeroGenerator: HeroGenerator {
     func getRandom() -> Hero {
         var hero = StandartHero(race: "", energy: 0, lifePoints: 0, weapon: nil, armor: nil)
